@@ -19,6 +19,9 @@ model user {
   lastName  String   @map("last_name")
   username  String  @unique
   email     String  @unique
+  bio       String?
+  avatar    String?
+  expertise String[] @default([])
   password  String
   isEmailVerified Boolean @default(false) @map("is_email_verified")
   createdAt DateTime @default(now()) @map("created_at")
@@ -26,6 +29,8 @@ model user {
   roles     String[]  
   OTP otp[]
   refreshToken refreshToken[]
+  blogs blogs[]
+  feedback feedback[]
 
   @@index([id])
   @@map("users")
@@ -57,5 +62,34 @@ model refreshToken {
   @@index([userId])
   @@index([token])
   @@map("refresh_tokens")
+}
+
+
+
+model blogs {
+  id          String   @id @default(uuid())
+  title       String
+  content     String
+  authorId    String   @map("author_id")
+  excerpt    String?
+  tags        String[] @default([]) // Array of tags for the blog post
+  readTime   Int      @default(0) // Estimated read time in minutes
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  author      user     @relation(fields: [authorId], references: [id])
+  
+  @@index([authorId])
+  @@map("blogs")
+}
+
+model feedback {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  content     String
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  user        user     @relation(fields: [userId], references: [id])
+  @@index([userId])
+  @@map("feedback")
 }
 

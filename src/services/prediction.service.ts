@@ -2,7 +2,7 @@ import { PredictionRequestDTO, PredictionResponse } from "src/interfaces/DTOs/pr
 import CustomError from "src/shared/exceptions/CustomError";
 import logger from "src/utils/logger";
 
-const PREDICTION_SERVICE_URL = 'https://flood-prediction-model-production.up.railway.app/predict';
+const PREDICTION_SERVICE_URL = 'http://localhost:8000/predict'; // Replace with actual prediction service URL
 
 /**
  * Make prediction request to external flood prediction service

@@ -6,8 +6,10 @@ import * as userController from "src/controllers/user.controller";
 
 const router = Router()
 
+// Update user information
+router.patch("/update", verifyToken, validateData(UpdateUserSchema), userController.updateUser);
 
-router.patch("/update",verifyToken,validateData(UpdateUserSchema) , userController.updateUser )
-
+// Get user by ID
+router.get("/:id", verifyToken, userController.getUserById);
 
 export default router;

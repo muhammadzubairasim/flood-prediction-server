@@ -13,6 +13,9 @@ export const UpdateUserSchema = z.object({
         .regex(/[a-z]/, "Password must contain at least one lowercase letter")
         .regex(/[0-9]/, "Password must contain at least one number")
         .optional(),
+    bio: z.string().max(500, "Bio must not exceed 500 characters").optional(),
+    avatar: z.string().url("Avatar must be a valid URL").optional(),
+    expertise: z.array(z.string().min(1, "Expertise items cannot be empty")).max(10, "Maximum 10 expertise areas allowed").optional(),
     roles: z.array(z.string()).optional(),
 }).refine(data => Object.keys(data).length > 0, {
     message: 'At least one field must be provided for update'

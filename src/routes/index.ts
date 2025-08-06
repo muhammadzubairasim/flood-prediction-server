@@ -2,6 +2,8 @@ import { Router } from 'express';
 import authRoutes from './auth.routes';
 import userRoutes from './user.routes'; 
 import predictionRoutes from './prediction.routes';
+import blogRoutes from './blog.routes';
+import feedbackRoutes from './feedback.routes';
 
 const router = Router();
 
@@ -12,7 +14,9 @@ router.get('/', (_req, res) => {
 
 // Register all route modules
 router.use('/auth', authRoutes);
-router.use('/user', userRoutes); // Assuming user routes are also in auth.routes.ts
+router.use('/user', userRoutes);
+router.use('/blogs', blogRoutes);
+router.use('/feedback', feedbackRoutes);
 router.use('/', predictionRoutes);
 
 export default router;

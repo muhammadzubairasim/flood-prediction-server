@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import env from './config/env';
 import logger from './utils/logger';
@@ -8,8 +8,8 @@ import prisma from './config/prisma/prisma.client';
 import { allowedOrigins } from './config/origins/allowed.origins';
 
 
-// Initialize Express application
 const app = express();
+
 if(!env) {
   logger.error("Environment variables are not loaded");
   process.exit(1);

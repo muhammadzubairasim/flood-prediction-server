@@ -10,6 +10,9 @@ export const userSchema = z.object({
     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
     .regex(/[a-z]/, "Password must contain at least one lowercase letter")
     .regex(/[0-9]/, "Password must contain at least one number"),
+  bio: z.string().max(500, "Bio must not exceed 500 characters").optional(),
+  avatar: z.string().url("Avatar must be a valid URL").optional(),
+  expertise: z.array(z.string().min(1, "Expertise items cannot be empty")).max(10, "Maximum 10 expertise areas allowed").optional().default([]),
   roles: z.array(z.string())
 });
 

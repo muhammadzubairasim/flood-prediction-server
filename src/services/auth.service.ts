@@ -34,6 +34,11 @@ import { otpPurpose } from "src/interfaces/enums/auth";
 export const signUp= async (userData:UserInput)=>{
 
     // Check if the user already exists
+
+        // get all the blogs of user name blogs 
+        // select * from blogs LEFT join on 
+        
+
     const existingUser = await prisma.user.findFirst({
         where: {
             OR: [
@@ -68,6 +73,9 @@ export const signUp= async (userData:UserInput)=>{
             firstName: userData.firstName,
             lastName: userData.lastName,
             roles: userData.roles,
+            avatar: userData.avatar,
+            bio: userData.bio,
+            expertise: userData.expertise,
         }
     })
 

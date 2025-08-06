@@ -7,6 +7,8 @@ import { userSchema } from 'src/interfaces/schemas/create/auth';
 const router = Router();
 
 // Public routes - no authentication required
+
+
 router.post('/signup',validateData(userSchema), authController.signup);
 router.post('/login', validateData(loginSchema),authController.login);
 router.post('/verify-otp',verifyToken,validateData(verificationCodeSchema), authController.verifyOtp);
