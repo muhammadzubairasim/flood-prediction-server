@@ -17,6 +17,6 @@ router.use('/auth', authRoutes);
 router.use('/user', userRoutes);
 router.use('/blogs', blogRoutes);
 router.use('/feedback', feedbackRoutes);
-router.use('/', predictionRoutes);
+router.use('/predictions', predictionRoutes);
 
 export default router;

@@ -1,9 +1,6 @@
 import { getEmailConfig } from "src/config/email/email";
 import nodemailer from "nodemailer";
-import path from "path";
-import exphbs from "nodemailer-express-handlebars";
-import { engine } from "express-handlebars";
-import type { NodemailerExpressHandlebarsOptions } from "nodemailer-express-handlebars";
+
 
 const emailConfig = getEmailConfig();
 

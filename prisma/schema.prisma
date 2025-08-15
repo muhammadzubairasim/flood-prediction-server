@@ -31,6 +31,7 @@ model user {
   refreshToken refreshToken[]
   blogs blogs[]
   feedback feedback[]
+  predictionHistory predictionHistory[]
 
   @@index([id])
   @@map("users")
@@ -93,3 +94,27 @@ model feedback {
   @@map("feedback")
 }
 
+// ...existing code...
+
+model predictionHistory {
+  id                String   @id @default(uuid())
+  userId            String   @map("user_id")
+  inputSummary      Json     @map("input_summary") // Store the input parameters as JSON
+  predictions       Json     // Store the array of model predictions as JSON
+  consensus         Json     // Store consensus data as JSON
+  bestModelName     String   @map("best_model_name")
+  bestPrediction    Int      @map("best_prediction")
+  bestPredictionLabel String @map("best_prediction_label")
+  bestFloodProbability Float @map("best_flood_probability")
+  bestConfidence    Float    @map("best_confidence")
+  bestModelAccuracy Float    @map("best_model_accuracy")
+  bestModelAuc      Float    @map("best_model_auc")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+  
+  user user @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+  @@index([createdAt])
+  @@map("prediction_history")
+}

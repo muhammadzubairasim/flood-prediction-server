@@ -61,29 +61,6 @@ cd your-project-name
 npm install
 ```
 
-3. Set up environment variables:
-
-```bash
-cp .env.example .env
-```
-
-4. Configure your `.env` file with your database connection string and JWT secret:
-
-```env
-DATABASE_URL="postgresql://username:password@localhost:5432/database_name"
-JWT_SECRET="your-super-secret-jwt-key"
-```
-
-5. Generate Prisma client:
-
-```bash
-npm run prisma:generate
-```
-
-6. Run database migrations:
-
-```bash
-npm run prisma:migrate
 ```
 
 7. Start the development server:
