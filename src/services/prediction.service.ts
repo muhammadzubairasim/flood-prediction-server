@@ -18,8 +18,9 @@ export const makePrediction = async (predictionData: PredictionRequestDTO): Prom
     const response = await fetch(PREDICTION_SERVICE_URL, {
       method: 'POST',
       headers: {
-        'accept': 'application/json',
-        'Content-Type': 'application/json',
+      'accept': 'application/json',
+      'Content-Type': 'application/json',
+      'authorization': process.env.FAST_API_KEY? `${process.env.FAST_API_KEY}` : ''
       },
       body: JSON.stringify(predictionData)
     });

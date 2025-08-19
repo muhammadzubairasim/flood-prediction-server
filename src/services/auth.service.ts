@@ -443,7 +443,7 @@ export const generateAndSaveOtp = async (userId: string) => {
         const otpHash = await bcrypt.hash(otp, 10);
         logger.info(`Generated OTP: ${otp}`); // Logged the OTP for debugging purposes
         const expiresAt = new Date();
-        expiresAt.setMinutes(expiresAt.getMinutes() + 10);
+        expiresAt.setMinutes(expiresAt.getMinutes() + 1);
 
         const lastOtpRequest = await prisma.otp.findFirst({
             where: {
