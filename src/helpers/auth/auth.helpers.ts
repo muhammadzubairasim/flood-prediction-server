@@ -44,7 +44,7 @@ const emailTemplates = {
       <div style="background: #f8f9fa; padding: 20px; text-align: center; margin: 20px 0; font-size: 24px; font-weight: bold; color: #333; border: 2px solid #ddd; border-radius: 5px;">
         ${otp}
       </div>
-      <p style="font-size: 16px; color: #333;">This code will expire in 5 minutes.</p>
+      <p style="font-size: 16px; color: #333;">This code will expire in 1 minutes.</p>
       <p style="font-size: 16px; color: #333;">If you didn’t request this, please ignore this email.</p>
       <footer style="font-size: 12px; text-align: center; color: #777; margin-top: 30px;">
         <p>Flood Prediction Model | <a href="http://www.floodprediction.com" style="color: #2c3e50;">Visit our site</a></p>
@@ -62,7 +62,6 @@ const emailTemplates = {
       <div style="background: #f8f9fa; padding: 20px; text-align: center; margin: 20px 0; font-size: 24px; font-weight: bold; color: #333; border: 2px solid #ddd; border-radius: 5px;">
         ${otp}
       </div>
-      <p style="font-size: 16px; color: #333;">This code will expire in 15 minutes.</p>
       <footer style="font-size: 12px; text-align: center; color: #777; margin-top: 30px;">
         <p>Flood Prediction Model | <a href="http://www.floodprediction.com" style="color: #2c3e50;">Visit our site</a></p>
       </footer>
